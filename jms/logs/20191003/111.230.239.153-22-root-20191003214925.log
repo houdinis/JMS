@@ -1,0 +1,13 @@
+Last login: Thu Oct  3 21:47:31 2019 from 111.230.239.153
+]0;root@VM_0_4_centos:~[?1034h(base) [root@VM_0_4_centos ~]# imc[K[K[Kwhom[Kami
+root
+]0;root@VM_0_4_centos:~(base) [root@VM_0_4_centos ~]# clear
+[3J[H[2J]0;root@VM_0_4_centos:~(base) [root@VM_0_4_centos ~]# ls
+001.sql                                   [0m[01;31mprobjects.tar[0m
+[01;34manaconda3[0m                                 [01;34mpython[0m
+Anaconda3-2019.07-Linux-x86_64.sh         [01;34mPython_arithmetic[0m
+blog.sql                                  reload.sh
+[01;31mcompat-readline5-5.2-17.1.el6.x86_64.rpm[0m  stop.sh
+[01;34mjavascript[0m
+[m]0;root@VM_0_4_centos:~(base) [root@VM_0_4_centos ~]# imc[K[K[Kh[Kexit
+logout
