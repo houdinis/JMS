@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/root/anaconda3/envs/jms/bin/python
+=======
+#!/root/anaconda3/envs/jms/bin python3.5
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 import subprocess
 import os
 import pwd
@@ -9,7 +13,11 @@ class Bash(object):
         self.ret = None
 
     def exec(self, command):
+<<<<<<< HEAD
         self.ret = subprocess.Popen('{}'.format(command), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+=======
+        self.ret = subprocess.Popen('{0}'.format(command), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
         self.ret.wait()
         print(self.ret.stderr.read())
     
@@ -31,7 +39,10 @@ class UserManager(object):
         self.sh = sh()
 
     # 用户添加
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
     def user_create(self, username=None, password=None, shell='/bin/bash'):
         cmd = 'id {username} || useradd {username} -s {shell}'.format(username=username, shell=shell)
         self.sh.exec(cmd)
@@ -66,9 +77,12 @@ class UserManager(object):
             return True
         else:
             return False
+<<<<<<< HEAD
 
 
 if __name__=='__main__':
     u = UserManager(Bash)
     ret, msg = u.user_create(username='houdinis', password='houdinis123', shell='/home/jms/init.sh')
     print(ret, msg)
+=======
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df

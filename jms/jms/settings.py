@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'assets.apps.AssetsConfig',
     'perm.apps.PermConfig',
+<<<<<<< HEAD
     'gunicorn',
+=======
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 ]
 
 MIDDLEWARE = [
@@ -122,12 +125,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 #STATIC_ROOT = '/static/'
+=======
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # Set global static file dir
 ]
 
+<<<<<<< HEAD
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_assets')
+=======
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 AUTH_USER_MODEL = 'user.User'
 
 LOGIN_URL = '/user/login'

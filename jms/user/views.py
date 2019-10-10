@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/root/anaconda3/envs/jms/bin/python
 from django.shortcuts import render, HttpResponseRedirect, reverse, get_object_or_404, HttpResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -6,13 +7,27 @@ from .models import User
 from .forms import UserAddForm, UserUpdateForm
 from .utils import UserManager, Bash
 from django.conf import settings
+=======
+from django.shortcuts import render, HttpResponseRedirect, reverse, get_object_or_404, HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, logout, authenticate
+from .models import User
+from .forms import UserAddForm, UserUpdateForm
+from django.contrib.auth.hashers import make_password
+from django.conf import settings
+from .utils import UserManager, Bash
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 import os
 
 init_path = os.path.join(settings.BASE_DIR, 'init.sh')
 
+<<<<<<< HEAD
 
 @login_required
 @user_passes_test(lambda user: user.is_superuser)
+=======
+@login_required
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 def user_list(request):
     user = User.objects.all()
     form = UserAddForm()
@@ -21,17 +36,29 @@ def user_list(request):
 
 # 用户增加
 @login_required
+<<<<<<< HEAD
 @user_passes_test(lambda user: user.is_superuser)
+=======
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 def user_create(request):
     if request.method == 'POST':
         form = UserAddForm(request.POST)
         if form.is_valid():
+<<<<<<< HEAD
             username = form.cleaned_data['username'].strip()
             password = form.cleaned_data['password'].strip()
             f = form.save(commit=False)
             user = UserManager(Bash) 
             ret, msg = user.user_create(username=username, password=password, shell=init_path)
             if not ret:
+=======
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            f = form.save(commit=False)
+            user = UserManager(Bash) 
+            ret, msg = user.user_create(username=username, password=password, shell=init_path)
+            if ret:
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
                f.save()
                return HttpResponseRedirect(reverse('user:list'))
             else:
@@ -45,7 +72,10 @@ def user_create(request):
 
 
 @login_required
+<<<<<<< HEAD
 @user_passes_test(lambda user: user.is_superuser)
+=======
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 def user_delete(request, pk):
     user = get_object_or_404(User, id=pk)
     um = UserManager(Bash)
@@ -57,7 +87,10 @@ def user_delete(request, pk):
 
 # 用户信息更新
 @login_required
+<<<<<<< HEAD
 @user_passes_test(lambda user: user.is_superuser)
+=======
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 def user_update(request, pk):
     user = get_object_or_404(User, id=pk)
 
@@ -68,7 +101,11 @@ def user_update(request, pk):
             f = form.save(commit=False)
             if password:
                 um = UserManager(Bash)
+<<<<<<< HEAD
                 ret, msg = um.user_create(username=user.username, password=password, shell=init_path)
+=======
+                ret, msg = um.user_create(username=user.username, password=password,shell=init_path)
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
                 user.set_password(password)
                 if ret:
                     return HttpResponse(msg)
@@ -84,6 +121,10 @@ def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+<<<<<<< HEAD
+=======
+        print(username, password)
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
         user_obj = authenticate(username=username, password=password)
         if user_obj is not None:
             if user_obj.is_active:

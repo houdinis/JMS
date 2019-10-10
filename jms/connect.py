@@ -9,10 +9,15 @@ import textwrap
 import re
 import paramiko
 import socket
+<<<<<<< HEAD
 import datetime
 import termios
 import tty
 import select
+=======
+
+
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_DIR = os.path.join(BASE_DIR, 'logs')
@@ -30,6 +35,10 @@ from perm.perm_api import get_user_asset
 # 获取当前登陆用户名
 user_login = getpass.getuser()
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 def color_print(msg, color='red', exit=False):
     """
     Print colorful string.
@@ -74,7 +83,11 @@ class TTY:
         except (paramiko.ssh_exception.AuthenticationException, paramiko.ssh_exception.SSHException):
             color_print('连接服务器失败', exit=True)
         self.ssh = ssh
+<<<<<<< HEAD
         self.chan = ssh.invoke_shell(term='xterm') # TODO
+=======
+        self.chan = ssh.invoke_shell(term='xterm')
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 
     def __get_log_f(self):
         now = datetime.datetime.now()
@@ -91,12 +104,20 @@ class TTY:
 
     def posix_shell(self):
         log_f = self.__get_log_f()
+<<<<<<< HEAD
         old_tty = termios.tcgetattr(sys.stdin)    # TODO
+=======
+        old_tty = termios.tcgetattr(sys.stdin)
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
         try:
             # 设置tty为raw模式, 不再使用已经设置好的tty, tty需要由我们来重新控制
             tty.setraw(sys.stdin.fileno())
             tty.setcbreak(sys.stdin.fileno())
+<<<<<<< HEAD
             self.chan.settimeout(0.0) # TODO
+=======
+            self.chan.settimeout(0.0)
+>>>>>>> 6fbd2458bc48b291b170883f84e1268ac32948df
 
             while True:
                 try:
